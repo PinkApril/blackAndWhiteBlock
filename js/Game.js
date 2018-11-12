@@ -21,6 +21,7 @@
                         document.getElementsByTagName('table')[0].getElementsByTagName('tr')[0].getElementsByTagName("td")[parseInt(Math.random() *4)].className = "active"
                         _this.bottom = 0;
                         document.getElementsByTagName('table')[0].style.bottom  = _this.bottom +'px';
+                        console.log('进来了')
                         // 判断点击，没有点击结束游戏
                         if(_this.bottom == 0){
                             let o = 0;
@@ -29,6 +30,7 @@
                                     o ++;
                                     if(o == 4){
                                         clearInterval(_this.timer)
+                                        _this.block.over()
                                     }
                                 }
                             }

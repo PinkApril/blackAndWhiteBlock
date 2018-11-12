@@ -1,6 +1,6 @@
 (function(){
     window.Block = function(){
-        this.rowAmount = 12; //行数
+        this.rowAmount = 7; //行数
         this.colAmount = 4;//列数
         this.score = 0;//游戏分数
         this.pev = 0;//点击状态
@@ -11,11 +11,18 @@
     }
     // 初始化dom
     Block.prototype.init = function(){
-        var table,tr,td;
+        var table,tr,td,div,span,btn;
         this.dom = document.createElement('span');
         document.getElementById('box').appendChild(this.dom);
+        $('span')[0].className = 'start'
         table = document.createElement('table');
         this.dom.after(table);
+        div = $('<div class="over"></div>');
+        span = $('<span>游戏结束</span><br>');
+        btn = $('<button><a href="./index.html">确 定</a></button>');
+        $("#box").append(div);
+        $('.over').append(span)
+        $('.over').append(btn)
         for(var i = 0; i < this.rowAmount; i++){
             tr = document.createElement("tr");
             table.appendChild(tr);
@@ -59,13 +66,12 @@
                             $('span')[0].innerText = "分数：" + self.score;
                             self.score += 1
                         }else{
-                            console.log("越行停止")
-                            console.log(self.pev,$(this).parent().index())
                             clearInterval(game.timer);
+                            self.over()
                         }
                     }else{
                         clearInterval(game.timer);
-                        console.log("空白停止")
+                        self.over()
                     }
                 } 
             }
@@ -87,6 +93,14 @@
         $("table").find("tr:last").remove()
         // 每次添加删除一行后，状态码+1
         this.pev +=1
+    }
+    // 游戏结束后提示游戏结束，确认后数据归零
+    Block.prototype.over = function(){
+        var _this = this;
+        $('.over')[0].style.display = 'block'
+        $('button').click(_this,function(){
+            $('.over')[0].style.display = 'none'
+        })
     }
     
 })();

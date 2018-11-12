@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: 0;
+        text-decoration: none;
+        color: #000;
+        box-sizing: content-box;
+    }
+    #box{
+        width: 302px;
+        height: 602px;
+        border: 1px solid red;
+        margin: 20px auto;
+        position: relative;
+        overflow: hidden;
+        margin: 5% auto;
+    }
+    .start{
+        position: absolute;
+        text-align: center;
+        z-index: 9;
+        font-weight: bold;
+        font-size: 40px;
+        color: rgb(36, 224, 36);
+    }
+    table{
+        position: absolute;
+        bottom: 0px;
+        width: 302px;
+        height: 602px;
+        border-collapse: collapse;
+    }
+    td{
+        width: 75px;
+        height: 100px;
+    }
+    table,tr,td{
+        border-collapse: collapse;
+        background-color: #fff;
+        border: 1px solid red;
+    }
+    .active{
+        background-color: #000;
+    }
+    .changeactive{
+        background-color: red;
+        text-align:center;
+        line-height: 100px;
+        color: #fff;
+        font-size: 20px;
+    }
+    .cur{
+        background-color: pink;
+        text-align:center;
+        line-height: 100px;
+        color: #fff;
+        font-size: 20px;
+    }
+    .over{
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        background-color: rgba(94, 94, 94, 0.8);
+        text-align: center;
+        padding: 50% 0;
+    }
+    .over span{
+        font-size: 50px;
+        line-height: 140px;
+        color: #fff;
+        letter-spacing: 5px;
+    }
+    .over button{
+        width: 60%;
+        background-color:cornflowerblue;
+        font-size: 30px;
+        line-height: 70px;
+
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+    </div>
+</body>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/Game.js"></script>
+<script src="js/Block.js"></script>
+<script>
+    var game = new Game();
+</script>
+</html>
